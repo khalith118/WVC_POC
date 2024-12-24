@@ -1,0 +1,169 @@
+@import './mixin';
+@import './colours';
+
+
+@mixin btn-size($height, $fontSize, $fontWeight: 600) {
+    height: $height;
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+}
+
+@mixin btn-theme($bg, $txt, $hover-bg, $active-bg, $disable-bg, $focus-bg, $focus-shadow: null) {
+    background: $bg;
+    color: $txt;
+
+    &:hover {
+        background: $hover-bg;
+    }
+
+    &:focus {
+        background: $focus-bg;
+
+        @if($focus-shadow !=null) {
+            box-shadow: 0px 0px 0px 4px $focus-shadow;
+        }
+
+        @else {
+            box-shadow: 0px 0px 0px 4px $color-button-shadow;
+        }
+    }
+
+    &:active {
+        background: $active-bg;
+    }
+
+    &:disabled {
+        background: $disable-bg;
+        cursor: not-allowed;
+    }
+}
+
+.form-button {
+    border-radius: 12px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+    user-select: none;
+    transition: all 0.3s;
+    border: none;
+    outline: none;
+    @include flex(center, center);
+    @include btn-size(44px, 16px);
+    @include btn-theme($bg: $color-blue-500,
+        $txt: $color-white,
+        $hover-bg: $color-blue-400,
+        $active-bg: $color-blue-700,
+        $disable-bg: $color-blue-500,
+        $focus-bg: $color-blue-500);
+
+    &.icon-only {
+        @include flex(center, center);
+        max-width: fit-content;
+
+        ::before {
+            margin: 0 !important;
+        }
+    }
+
+    &.btn-xxl {
+        @include btn-size(74px, 18px);
+    }
+    &.btn-xl {
+        @include btn-size(56px, 18px);
+    }
+
+    &.btn-lg {
+        @include btn-size(44px, 16px);
+    }
+
+    &.btn-md {
+        @include btn-size(32px, 14px);
+    }
+
+    &.btn-primary {
+        @include btn-theme($bg: $color-blue-500,
+            $txt: $color-white,
+            $hover-bg: $color-blue-400,
+            $active-bg: $color-blue-700,
+            $disable-bg: $color-blue-400,
+            $focus-bg: $color-blue-500);
+    }
+
+    &.btn-secondary {
+        @include btn-theme($bg: $color-neutral-100,
+            $txt: $color-neutral-950,
+            $hover-bg: $color-neutral-50,
+            $active-bg: $color-neutral-200,
+            $disable-bg: $color-neutral-50,
+            $focus-bg: $color-neutral-100,
+        );
+    }
+
+    &.btn-teritary {
+        @include btn-theme($bg: $color-neutral-950,
+            $txt: $color-white,
+            $hover-bg: $color-neutral-850,
+            $active-bg: $color-neutral-950,
+            $disable-bg: $color-neutral-100,
+            $focus-bg: $color-neutral-950,
+        );
+
+    }
+
+    &.btn-inverse {
+        @include btn-theme($bg: $color-white,
+            $txt: $color-neutral-950,
+            $hover-bg: $color-neutral-100,
+            $active-bg: $color-neutral-100,
+            $disable-bg: $color-neutral-100,
+            $focus-bg: $color-white,
+        );
+    }
+
+    &.btn-outline {
+        @include btn-theme($bg: $color-white,
+            $txt: $color-neutral-950,
+            $hover-bg: $color-neutral-50,
+            $active-bg: $color-white,
+            $disable-bg: $color-neutral-50,
+            $focus-bg: $color-white,
+        );
+        border: 1px solid $color-neutral-300;
+
+        &:hover,
+        &:focus {
+            border: none;
+        }
+    }
+
+    &.btn-empty {
+        @include btn-theme($bg: transparent,
+            $txt: transparent,
+            $hover-bg: transparent,
+            $active-bg: transparent,
+            $disable-bg: transparent,
+            $focus-bg: transparent,
+            $focus-shadow: transparent);
+        border: none;
+
+        &:hover,
+        &:focus {
+            border: none;
+        }
+    }
+
+    &.btn-w-auto {
+        width: fit-content;
+        padding: 0 1.25rem;
+    }
+
+    &.btn-rounded {
+        border-radius: 5rem;
+    }
+}
+
+.form-button-group {
+    @include flex;
+    gap: 10px;
+}

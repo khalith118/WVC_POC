@@ -1,0 +1,32 @@
+@import '../styles/colours';
+@import '../styles/mixin';
+@import '../styles/responsive';
+@import '../styles/colours';
+
+.homepage {
+    .hero-container {
+        background-image: url('../assets/BG-graphic.webp');
+        min-height: 80vh;
+        min-width: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-color: $color-white;
+        @include flex(center, center);
+        flex-direction: column;
+
+        .title {
+            text-align: center;
+            font-size: 78px;
+            line-height: 88px;
+            margin: 3pc 0;
+            width: 90%;
+        }
+
+        .sticky-btn {
+            margin: auto;
+            width: 100%;
+            padding: 1rem 4rem;
+        }
+
+    }
+}

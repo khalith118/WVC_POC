@@ -1,0 +1,325 @@
+ @import './styles/colours';
+ @import './styles/mixin';
+ @import './styles/responsive';
+ @import './styles/colours';
+
+ body {
+   background-color: #f4f5f7;
+ }
+
+ .error-message {
+   color: $color-red-700;
+   font-size: 14px;
+ }
+
+ .menubar {
+   @include flex(center, space-between);
+   padding: 12px;
+   border-bottom: 1px solid $color-neutral-300;
+   background-color: $color-white;
+
+   .logo {
+     margin: 0;
+
+     img {
+       width: 100%;
+     }
+   }
+
+   .menubox {
+     @include flex(center, start);
+
+     ul {
+       @include flex(center, start);
+       list-style: none;
+       gap: 8px;
+       margin: 12px;
+       padding: 0;
+
+       .link {
+         text-decoration: none;
+         font-size: 16px;
+         font-weight: 600;
+         color: $color-neutral-1000;
+       }
+
+       .userProfileBox {
+         width: 50px;
+         height: 50px;
+         background: $color-orange-600;
+         border-radius: 100%;
+         color: $color-white;
+         @include flex(center, center);
+       }
+     }
+   }
+ }
+
+
+ .langingBanner {
+   background-image: url('./assets/home-bg.jpg');
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-color: $color-white;
+   height: 65vh;
+
+   .content {
+     color: $color-white;
+     text-align: center;
+
+     h1 {
+       font-size: 3rem;
+       margin: 5px;
+       color: $color-black;
+     }
+
+     h5 {
+       color: $color-neutral-400;
+     }
+   }
+ }
+
+ .search-container {
+   padding: 1rem;
+   width: 80%;
+   border-radius: 12px;
+   margin: auto;
+   background-color: $color-white;
+   box-shadow: 1px 1px 5px 0px #8080809e;
+
+   .search-box {
+     @include flex(center, center);
+     color: $color-neutral-800;
+     overflow: hidden;
+     border-radius: 12px;
+     border: 1px solid $color-neutral-300;
+
+     &-inner {
+       height: 30vh;
+       flex: 1;
+       background-color: $color-white;
+       border-left: 1px solid $color-neutral-300;
+
+       .header {
+         font-size: 14px;
+         font-weight: 500;
+         text-align: left;
+         color: $color-neutral-600;
+         margin: 5px;
+       }
+
+       .content .autocompletebox ul {
+         height: 30vh;
+       }
+     }
+   }
+
+   .form-button {
+     margin: 1rem auto 0.5rem;
+     max-width: 300px;
+   }
+
+ }
+
+ .accordion-box {
+   border: 1px solid $color-neutral-100;
+   border-radius: 6px;
+
+   .header {
+     background-color: $color-neutral-100;
+     color: $color-neutral-700;
+     @include flex(center, space-between);
+     padding: 4px 12px;
+
+     * {
+       margin: 0;
+     }
+
+     button {
+       border: none;
+       background: transparent;
+       background: url('../src/assets/Chevron_Down.svg') no-repeat center center;
+       width: 50px;
+       height: 50px;
+       cursor: pointer;
+
+       &.expand {
+         transform: rotate(180deg);
+       }
+     }
+   }
+
+   .content {}
+ }
+
+ .cars-list {
+   display: flex;
+   gap: 6px;
+   max-width: 970px;
+   margin: 3rem auto;
+
+   .filters {
+     flex-basis: 30%;
+   }
+
+   .cars-list-inner {
+     flex-basis: 70%;
+
+     .count {
+       font-size: 15px;
+       color: $color-neutral-300;
+     }
+
+     .car-item {
+       border: 1px solid $color-neutral-100;
+       @include flex(start, start);
+       gap: 5px;
+
+       .car-logo {
+         max-width: 140px;
+         margin-top: 1rem;
+
+         img {
+           width: 100%;
+         }
+       }
+
+       .car-data {
+         flex: 1;
+
+         .header {
+           padding-bottom: 10px;
+           border-bottom: 1px solid $color-neutral-300;
+
+           .title {
+             font-size: 23px;
+             font-weight: bold;
+             margin: 15px 0;
+             font-size: 18px;
+             font-weight: 600;
+             @include flex(center, space-between);
+             padding: 0 10px;
+             flex-wrap: nowrap;
+
+             h2 {
+               margin: 0;
+             }
+           }
+
+           .bullets {
+             @include flex(center, start);
+             gap: 12px;
+
+             span {
+               border-right: 1px solid $color-neutral-300;
+               padding: 0 10px;
+
+             }
+           }
+
+
+         }
+
+         &-inner {
+           padding: 10px;
+
+           .title {
+             font-size: 18px;
+             font-weight: 600;
+           }
+
+           &-content {
+             width: auto;
+             padding-top: 10px;
+
+             .item {
+               @include flex(center, start);
+               padding: 2px 0;
+
+               div:first-child {
+                 color: $color-neutral-400;
+                 min-width: 30%;
+               }
+
+             }
+
+           }
+         }
+       }
+     }
+   }
+ }
+
+ .car-filters {
+   margin: 0;
+   padding: 0;
+   text-align: left;
+
+   li {
+     padding: 8px 12px;
+
+     label {
+       color: $color-neutral-700;
+       font-size: 16px;
+       text-align: left;
+     }
+   }
+
+ }
+
+ .summary-page {
+   background: #fff;
+   max-width: 650px;
+   margin: auto;
+   padding: 18px;
+   min-height: 40vh;
+   margin-top: 2rem;
+   border-radius: 12px;
+
+
+   &-inner {
+     h1 {
+       text-align: center;
+     }
+
+     .summary-conent {
+       text-align: left;
+
+       .item {
+         @include flex(center, start);
+
+         span:first-child {
+           min-width: 120px;
+           position: relative;
+
+           &::after {
+             content: ":";
+             position: absolute;
+             right: 5px;
+           }
+         }
+       }
+     }
+   }
+ }
+
+ .testbox {
+   min-width: 200px;
+   height: 30px;
+   padding: 12px;
+   border: 1px solid gray;
+ }
+
+ .m-1 {
+   margin: 1rem;
+ }
+
+ .mx-1 {
+   margin-left: 1rem;
+   margin-right: 1rem;
+ }
+
+ .my-1 {
+   margin-top: 1rem;
+   margin-bottom: 1rem;
+ }

@@ -1,0 +1,99 @@
+@import './mixin';
+@import './colours';
+
+.form-input {
+    position: relative;
+    font-size: 18px;
+    line-height: 24px;
+    color: $color-neutral-600;
+    user-select: none;
+    margin-bottom: 12px;
+
+    input {
+        font-size: 18px;
+        outline: none;
+        position: relative;
+        height: 60px;
+        border: 1px solid $color-neutral-300;
+        border-radius: 9pt;
+        box-sizing: border-box;
+        margin-top: 0;
+        padding: 1.5rem 1rem .5rem;
+        width: 100%;
+        max-width: none !important;
+
+        &::placeholder {
+            color: transparent;
+        }
+
+        &::-webkit-contacts-auto-fill-button {
+            visibility: hidden;
+            pointer-events: none;
+            position: absolute;
+        }
+
+        &:disabled {
+            background-color: $color-white !important;
+        }
+
+        &:focus {
+            &::placeholder {
+                color: $color-neutral-500 !important;
+            }
+        }
+
+    }
+
+    .toggle-password {
+        right: 10px !important;
+    }
+
+    &:has(select option:checked:not([value=""])) {
+        label {
+            display: none;
+        }
+    }
+
+    select {
+        font-size: 18px;
+        margin-bottom: 1rem;
+        border-radius: 9pt;
+        padding: 1.3rem;
+        width: 100%;
+        border-color: $color-neutral-300;
+        // -moz-appearance: none;
+        // -webkit-appearance: none;
+        // appearance: none;
+        // outline: none;
+        // background-image: url($icon-Chevron_Down);
+        // background-repeat: no-repeat;
+        // background-position: right;
+        // background-position-x: 97%;
+
+
+        &::-webkit-contacts-auto-fill-button {
+            visibility: hidden;
+            pointer-events: none;
+            position: absolute;
+        }
+
+    }
+
+    label {
+        position: absolute;
+        top: 16px;
+        left: 18px;
+        pointer-events: none;
+        transform-origin: left center;
+        transition: transform 250ms;
+        z-index: 1;
+    }
+
+    &:has(input:focus) label,
+    &:has(input:not(:placeholder-shown)) label,
+    &:has(textarea:focus) label,
+    &:has(textarea:not(:placeholder-shown)) label {
+        transform: translateY(-100%) scale(0.75);
+        top: 25px;
+    }
+}
